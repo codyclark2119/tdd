@@ -2,10 +2,13 @@ public class Item {
     private String name;
     private boolean imported;
     private Department department;
-    public Item(String name, boolean imported, Department department) {
+    private double price;
+
+    public Item(String name, boolean imported, Department department, double price) {
         this.name = name;
         this.imported = imported;
         this.department = department;
+        this.price = price;
     }
 
     public String getName() {
@@ -26,5 +29,13 @@ public class Item {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }

@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class DepartmentTest {
-    Department dept = new Department("books");
-    List<Item> exItems = Arrays.asList(new Item[]{new Item("I, Robot", false, dept), new Item("Nightfall", true, dept), new Item("Frankenstein", true, dept), new Item("Tom Sawyer", false, dept)});
+    Department dept = new Department("books", 0);
+    List<Item> exItems = Arrays.asList(new Item[]{new Item("I, Robot", false, dept, 12.49), new Item("Nightfall", true, dept, 13.49), new Item("Frankenstein", true, dept, 11.49)});
 
     @Test
     public void doesExist(){

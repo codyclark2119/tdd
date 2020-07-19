@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 class CashierTest {
     Store store = new Store("Wal-Mart");
     Customer customer = new Customer("Jeff");
-    Department bookDept = new Department("books");
-    List<Item> exItem1 = Arrays.asList(new Item[]{new Item("I, Robot", false, bookDept)});
-    Department eleDept = new Department("electronics");
-    List<Item> exItem2 = Arrays.asList(new Item[]{new Item("Malibu", false, eleDept)});
-    Department foodDept = new Department("food");
-    List<Item> exItem3 = Arrays.asList(new Item[]{new Item("Hersey's Chocolate Bar", false, foodDept)});
+    Department bookDept = new Department("books", 0);
+    List<Item> exItem1 = Arrays.asList(new Item[]{new Item("I, Robot", false, bookDept, 12.49)});
+    Department eleDept = new Department("electronics", .1);
+    List<Item> exItem2 = Arrays.asList(new Item[]{new Item("Malibu", false, eleDept, 14.99)});
+    Department foodDept = new Department("food", 0);
+    List<Item> exItem3 = Arrays.asList(new Item[]{new Item("Hersey's Chocolate Bar", false, foodDept, 0.85)});
 
     @Test
     public void doesExist(){

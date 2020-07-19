@@ -3,9 +3,11 @@ import java.util.List;
 public class Department {
     private String name;
     private List<Item> items;
+    private double taxPercentage;
 
-    public Department(String name) {
+    public Department(String name, double taxPercentage) {
         this.name = name;
+        this.taxPercentage = taxPercentage;
     }
 
     public String getName() {
@@ -22,6 +24,10 @@ public class Department {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public double getTaxPercentage() {
+        return taxPercentage;
     }
 
     public Item findItem(String name) {

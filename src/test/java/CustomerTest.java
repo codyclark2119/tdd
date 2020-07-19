@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 class CustomerTest {
     Customer customer = new Customer("Jeff");
-    Department dept = new Department("books");
-    List<Item> exItem = Arrays.asList(new Item[]{new Item("I, Robot", false, dept)});
+    Department dept = new Department("books", 0);
+    List<Item> exItem = Arrays.asList(new Item[]{new Item("I, Robot", false, dept,   12.49)});
 
     @Test
     public void doesExist() {
