@@ -26,9 +26,9 @@ public class Store {
     }
 
     public Department getDepartment(String searchName){
-        for(int i = 0; i < getDepartments().size(); i++){
-            if(getDepartments().get(i).getName() == searchName){
-                return getDepartments().get(i);
+        for (Department dept : departments) {
+            if(dept.getName() == searchName){
+                return dept;
             }
         }
         return null;
@@ -42,4 +42,12 @@ public class Store {
         return cashier;
     }
 
+    public Item searchStore(String s) {
+        for (Department dept : departments) {
+            if (dept.findItem(s) != null) {
+                return dept.findItem(s);
+            }
+        }
+        return null;
+    }
 }

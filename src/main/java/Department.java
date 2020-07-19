@@ -23,4 +23,13 @@ public class Department {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+    public Item findItem(String name) {
+        for (Item item : items) {
+            if (item.getName() == name) {
+                return item;
+            }
+        }
+        return null;
+    }
 }

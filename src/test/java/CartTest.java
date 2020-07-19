@@ -23,7 +23,8 @@ class CartTest {
     @Test
     public void getItems(){
         try{
-            assertEquals(exItem, customer.getCart.getItems());
+            customer.addToCart(exItem.get(0));
+            assertEquals(exItem, customer.getCart().getItems());
         } catch (RuntimeException e){
             fail();
         }

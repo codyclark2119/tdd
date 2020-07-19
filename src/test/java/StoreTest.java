@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 class StoreTest {
     Store store = new Store("Wal-Mart");
     List<Department> initDept = Arrays.asList(new Department[]{new Department("books"), new Department("food"), new Department("medical"), new Department("electronics"), new Department("perfume")});
-    List<Item> exItems = Arrays.asList(new Item[]{new Item("I, Robot", false, store.getDepartment("books")), new Item("Nightfall", true, store.getDepartment("books")), new Item("Frankenstein", true, store.getDepartment("books")), new Item("Tom Sawyer", false, store.getDepartment("books"))});
 
     @Test
     public void doesExist(){
@@ -47,9 +46,10 @@ class StoreTest {
         try{
             store.setDepartments(initDept);
             Department dept = store.getDepartment("books");
-            dept.setItems(exItems);
+            List<Item> exList = Arrays.asList(new Item[]{new Item("I, Robot", false, dept), new Item("Nightfall", true, dept), new Item("Frankenstein", true, dept)});
+            dept.setItems(exList);
             List<Item> deptItems = store.getDepartmentItems(dept);
-            assertEquals(exItems.get(0).getName(), deptItems.get(0).getName());
+            assertEquals(exList, deptItems);
         } catch (RuntimeException e){
             fail();
         }
@@ -60,9 +60,10 @@ class StoreTest {
         try{
             store.setDepartments(initDept);
             Department dept = store.getDepartment("books");
-            dept.setItems(exItems);
+            List<Item> exList = Arrays.asList(new Item[]{new Item("I, Robot", false, dept), new Item("Nightfall", true, dept), new Item("Frankenstein", true, dept)});
+            dept.setItems(exList);
             Item foundItem = store.searchStore("I, Robot");
-            assertEquals(exItems.get(0), foundItem);
+            assertEquals("I, Robot", foundItem.getName());
         } catch (RuntimeException e){
             fail();
         }
