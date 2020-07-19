@@ -34,7 +34,7 @@ public class Store {
         return null;
     }
 
-    public List getDepartmentItems(Department dept) {
+    public List<Item> getDepartmentItems(Department dept) {
         return dept.getItems();
     }
 
