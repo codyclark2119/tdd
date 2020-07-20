@@ -38,4 +38,15 @@ public class Item {
     public void setPrice(float price) {
         this.price = price;
     }
+
+    public double getTaxedPrice(){
+        double price = getPrice();
+        double taxRate = getDepartment().getTaxPercentage();
+        if (isImported()){
+            taxRate += .05;
+        }
+        price = (price * taxRate) + price;
+        price = Math.round(price * 200.0) / 200.0;
+        return price;
+    }
 }

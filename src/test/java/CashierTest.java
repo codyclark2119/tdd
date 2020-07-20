@@ -54,7 +54,7 @@ class CashierTest {
             customer.addToCart(store.searchStore("I, Robot"));
             customer.addToCart(store.searchStore("Malibu"));
             customer.addToCart(store.searchStore("Hersey's Chocolate Bar"));
-            assertEquals(1.50, store.getCashier().totalPrice(customer));
+            assertEquals(29.83, store.getCashier().totalPrice(customer));
         } catch (RuntimeException e){
             fail();
         }

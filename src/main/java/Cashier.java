@@ -1,6 +1,8 @@
+import java.text.DecimalFormat;
+
 public class Cashier {
-    public float totalTax(Customer customer) {
-        float taxTotal = 0;
+    public double totalTax(Customer customer) {
+        double taxTotal = 0;
         for (Item item : customer.getCartItems()) {
             double taxPercentTotal = item.getDepartment().getTaxPercentage();
             if(item.isImported()){
@@ -8,10 +10,16 @@ public class Cashier {
             }
             taxTotal += item.getPrice() * taxPercentTotal;
         }
+
+        taxTotal = Math.round(taxTotal * 200.0) / 200.0;
         return taxTotal;
     }
 
-    public float totalPrice(Customer customer) {
-        return 0;
+    public double totalPrice(Customer customer) {
+        double total = 0;
+        for (Item item : customer.getCartItems()) {
+            total += item.getTaxedPrice();
+        }
+        return total;
     }
 }

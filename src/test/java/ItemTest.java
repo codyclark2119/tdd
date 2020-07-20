@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class ItemTest {
-    Department dept = new Department("food", 0);
-    Item item = new Item("Mixed Nuts", false, dept, .85);
+    Department dept = new Department("electronics", .1);
+    Item item = new Item("Malibu", false, dept, 14.99);
 
     @Test
     public void doesExist(){
@@ -19,7 +19,7 @@ class ItemTest {
     @Test
     public void getName(){
         try{
-            assertEquals("Mixed Nuts", item.getName());
+            assertEquals("Malibu", item.getName());
         } catch (RuntimeException e){
             fail();
         }
@@ -28,7 +28,16 @@ class ItemTest {
     @Test
     public void getPrice(){
         try{
-            assertEquals(.85, item.getPrice());
+            assertEquals(14.99, item.getPrice());
+        } catch (RuntimeException e){
+            fail();
+        }
+    }
+
+    @Test
+    public void getTaxedPrice(){
+        try{
+            assertEquals(16.49, item.getTaxedPrice());
         } catch (RuntimeException e){
             fail();
         }
