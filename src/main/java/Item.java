@@ -50,8 +50,7 @@ public class Item {
         }
         taxAmt = (taxAmt * taxRate);
         if(taxRate > 0){
-            taxAmt = 5*(Math.ceil( taxAmt * 10 )/5);
-            taxAmt = taxAmt/10;
+            taxAmt = Math.round(taxAmt * 20) / 20.0;
         }
 
         return taxAmt;
