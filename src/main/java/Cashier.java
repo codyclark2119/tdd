@@ -1,17 +1,12 @@
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class Cashier {
     public double totalTax(Customer customer) {
         double taxTotal = 0;
         for (Item item : customer.getCartItems()) {
-            double taxPercentTotal = item.getDepartment().getTaxPercentage();
-            if(item.isImported()){
-                taxPercentTotal += .05;
-            }
-            taxTotal += item.getPrice() * taxPercentTotal;
+            taxTotal += item.getTaxAmount();
         }
-
-        taxTotal = Math.round(taxTotal * 200.0) / 200.0;
         return taxTotal;
     }
 

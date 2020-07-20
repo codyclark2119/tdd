@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Item {
     private String name;
     private boolean imported;
@@ -39,14 +42,24 @@ public class Item {
         this.price = price;
     }
 
-    public double getTaxedPrice(){
-        double price = getPrice();
+    public double getTaxAmount(){
+        double taxAmt = getPrice();
         double taxRate = getDepartment().getTaxPercentage();
         if (isImported()){
             taxRate += .05;
         }
-        price = (price * taxRate) + price;
-        price = Math.round(price * 200.0) / 200.0;
-        return price;
+        taxAmt = (taxAmt * taxRate);
+        if(taxRate > 0){
+            taxAmt = 5*(Math.ceil( taxAmt * 10 )/5);
+            taxAmt = taxAmt/10;
+        }
+
+        return taxAmt;
+    }
+
+    public double getTaxedPrice(){
+        double price = getPrice();
+        double taxAmount = getTaxAmount();
+        return price + taxAmount;
     }
 }

@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class Store {
@@ -49,5 +51,18 @@ public class Store {
             }
         }
         return null;
+    }
+
+    public void checkout(Customer customer) {
+        System.out.println("\n");
+        double taxTotal = getCashier().totalTax(customer);
+        double total = getCashier().totalPrice(customer);
+        NumberFormat formatter = new DecimalFormat("#0.00");
+        for (Item item : customer.getCartItems()) {
+            System.out.println(" " + item.getName() + " for " + formatter.format(item.getTaxedPrice()));
+        }
+        System.out.println("\n");
+        System.out.println(" Sales Taxes: $" + formatter.format(taxTotal) + " Total: $" + formatter.format(total));
+        System.out.println("|----------------------------------------|");
     }
 }
